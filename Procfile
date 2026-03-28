@@ -1,0 +1,1 @@
+web: gunicorn accident_project.wsgi

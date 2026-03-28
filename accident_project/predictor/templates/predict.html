@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accident Severity Prediction</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#000000,#0a1a2f);
+    color:white;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.card{
+    background:#111;
+    padding:40px;
+    width:450px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#66c2ff;
+}
+
+label{
+    font-weight:bold;
+    color:#ddd;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #333;
+    border-radius:5px;
+    background:#1a1a1a;
+    color:white;
+}
+
+input::placeholder{
+    color:#aaa;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#66c2ff;
+    color:black;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4db8ff;
+    transform:scale(1.03);
+}
+
+#map{
+    height:250px;
+    width:100%;
+    margin-bottom:15px;
+    border-radius:6px;
+}
+
+.location-name{
+    font-size:14px;
+    margin-bottom:10px;
+    color:#aaa;
+}
+
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Accident Severity Prediction</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Current Location</label>
+
+<button type="button" onclick="getLocation()" style="
+padding:8px 12px;
+margin-bottom:10px;
+background:#3498db;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;">
+📍 Use Current Location
+</button>
+
+<div class="location-name" id="locationName">Location: Not selected</div>
+
+<div id="map"></div>
+
+<input type="hidden" id="lat" name="latitude">
+<input type="hidden" id="lng" name="longitude">
+
+<label>Weather Condition</label>
+<select name="weather">
+<option value="0">Fine</option>
+<option value="1">Rain</option>
+<option value="2">Fog</option>
+<option value="3">Snow</option>
+</select>
+
+<label>Road Surface</label>
+<select name="road">
+<option value="0">Dry</option>
+<option value="1">Wet</option>
+<option value="2">Snow</option>
+</select>
+
+<label>Light Condition</label>
+<select name="light">
+<option value="0">Daylight</option>
+<option value="1">Dark with Street Lights</option>
+<option value="2">Dark without Lights</option>
+</select>
+
+<label>Speed Limit</label>
+<input type="number" name="speed" placeholder="Enter speed limit">
+
+<label>Number of Vehicles</label>
+<input type="number" name="vehicles" placeholder="Enter number of vehicles">
+
+<label>Driver Age</label>
+<input type="number" name="age" placeholder="Enter driver age">
+
+<label>Driver Gender</label>
+<select name="gender">
+<option value="0">Male</option>
+<option value="1">Female</option>
+</select>
+
+<button type="submit">Predict Severity</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+var map = L.map('map').setView([20.5937,78.9629],5);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+ attribution:'© OpenStreetMap contributors'
+}).addTo(map);
+
+var marker;
+
+function getPlaceName(lat,lng){
+
+fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=en`)
+.then(res=>res.json())
+.then(data=>{
+
+let place =
+data.address.city ||
+data.address.town ||
+data.address.village ||
+data.address.state ||
+"Unknown Location";
+
+document.getElementById("locationName").innerText =
+"Location: " + place;
+
+if(marker){
+marker.bindPopup("📍 "+place).openPopup();
+}
+
+});
+
+}
+
+function getLocation(){
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+var lat = position.coords.latitude;
+var lng = position.coords.longitude;
+
+map.setView([lat,lng],16);
+
+if(marker){
+map.removeLayer(marker);
+}
+
+marker = L.marker([lat,lng]).addTo(map);
+
+document.getElementById("lat").value = lat;
+document.getElementById("lng").value = lng;
+
+getPlaceName(lat,lng);
+
+});
+
+}
+
+}
+
+map.on('click',function(e){
+
+var lat = e.latlng.lat;
+var lng = e.latlng.lng;
+
+document.getElementById("lat").value = lat;
+document.getElementById("lng").value = lng;
+
+if(marker){
+map.removeLayer(marker);
+}
+
+marker = L.marker([lat,lng]).addTo(map);
+
+getPlaceName(lat,lng);
+
+});
+
+</script>
+
+</body>
+</html>

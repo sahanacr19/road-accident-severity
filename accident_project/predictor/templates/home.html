@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accident Severity Prediction</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #000000, #0a1a2f);
+    height:100vh;
+}
+
+/* Center the whole content */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* Card design */
+.card{
+    text-align:center;
+    background:#111;
+    padding:50px;
+    width:500px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+h1{
+    margin-bottom:20px;
+    font-size:32px;
+    color:#66ccff; /* light blue title */
+}
+
+p{
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+/* Button style */
+button{
+    padding:12px 25px;
+    font-size:16px;
+    background:#66c2ff;
+    color:black;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4db8ff;
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Accident Severity Prediction System</h1>
+
+<p>
+This system predicts the severity of a road accident using Machine Learning
+based on road and environmental conditions.
+</p>
+
+<a href="{% url 'predict' %}">
+<button>Start Prediction</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
