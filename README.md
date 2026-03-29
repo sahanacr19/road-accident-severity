@@ -20,3 +20,21 @@ Random Forest was selected as the final model with an accuracy of 96%.
 The home page of the Accident Severity Prediction System provides an introduction to the web application.  
 It explains that the system predicts the severity of road accidents using Machine Learning based on road and environmental conditions.  
 Users can click the **"Start Prediction"** button to proceed to the prediction page where they can enter required parameters and obtain the predicted severity level.
+
+### User Page
+<img width="461" height="801" alt="image" src="https://github.com/user-attachments/assets/7824c187-39c8-406a-95d7-5e37d49ee649" />
+
+The prediction page allows users to enter related parameters required for severity prediction.  
+Users can select their **"current location"** using the location button, which displays the location on an interactive map powered by **Leaflet and OpenStreetMap**.  
+
+The form includes several input fields such as:
+
+- Weather condition  
+- Road surface condition  
+- Light condition  
+- Speed limit  
+- Number of vehicles involved  
+- Driver age  
+- Driver gender  
+
+After entering the required details, the user can click the **"Predict Severity"** button to generate the accident severity prediction using the trained **Machine Learning model (Random Forest)**.
