@@ -42,7 +42,7 @@ After entering the required details, the user can click the **"Predict Severity"
 
 ### Result Page
 
-<img width="773" height="399" alt="image" src="https://github.com/user-attachments/assets/8fe17404-b2e0-401c-a8f2-b1ed177550f4" />
+<img width="600" height="532" alt="image" src="https://github.com/user-attachments/assets/8fe17404-b2e0-401c-a8f2-b1ed177550f4" />
 
 This page displays the predicted accident severity after the user submits the required input parameters.  
 The system processes the provided information using the trained **Random Forest Machine Learning model** and classifies the accident severity into three categories:
