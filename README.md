@@ -14,15 +14,15 @@ Random Forest was selected as the final model with an accuracy of 96%.
 ## Result
 
 ### Home Page
-<img width="600" height="532" alt="image" src="https://github.com/user-attachments/assets/bc0ac1dd-1dac-46c2-afdb-b72a0d6773e7" />
+<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/bc0ac1dd-1dac-46c2-afdb-b72a0d6773e7" />
 
 
 The home page of the Accident Severity Prediction System provides an introduction to the web application.  
 It explains that the system predicts the severity of road accidents using Machine Learning based on road and environmental conditions.  
 Users can click the **"Start Prediction"** button to proceed to the prediction page where they can enter required parameters and obtain the predicted severity level.
 
-### User Page
-<img width="450" height="700" alt="image" src="https://github.com/user-attachments/assets/71baa514-ccc1-44cf-80bd-539d7d2b6f26" />
+### Prediction Page
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/71baa514-ccc1-44cf-80bd-539d7d2b6f26" />
 
 
 The prediction page allows users to enter related parameters required for severity prediction.  
@@ -42,7 +42,7 @@ After entering the required details, the user can click the **"Predict Severity"
 
 ### Result Page
 
-<img width="600" height="532" alt="image" src="https://github.com/user-attachments/assets/8fe17404-b2e0-401c-a8f2-b1ed177550f4" />
+<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/8fe17404-b2e0-401c-a8f2-b1ed177550f4" />
 
 This page displays the predicted accident severity after the user submits the required input parameters.  
 The system processes the provided information using the trained **Random Forest Machine Learning model** and classifies the accident severity into three categories:
