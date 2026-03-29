@@ -39,3 +39,17 @@ The form includes several input fields such as:
 - Driver gender  
 
 After entering the required details, the user can click the **"Predict Severity"** button to generate the accident severity prediction using the trained **Machine Learning model (Random Forest)**.
+
+### Result Page
+
+<img width="773" height="399" alt="image" src="https://github.com/user-attachments/assets/8fe17404-b2e0-401c-a8f2-b1ed177550f4" />
+
+This page displays the predicted accident severity after the user submits the required input parameters.  
+The system processes the provided information using the trained **Random Forest Machine Learning model** and classifies the accident severity into three categories:
+
+- **Minor**
+- **Moderate**
+- **Severe**
+
+The predicted severity is highlighted on the screen to clearly indicate the result.  
+Users can click the **Predict Again** button to return to the input form and perform another prediction with different parameters.
