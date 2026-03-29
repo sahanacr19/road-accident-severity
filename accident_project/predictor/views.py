@@ -25,7 +25,7 @@ def predict(request):
         age = int(request.POST.get("age"))
         gender = int(request.POST.get("gender"))
 
-        casualty = 2
+        print(weather, road, light, speed, vehicles, age, gender)
 
         features = [[
             weather,
@@ -39,12 +39,14 @@ def predict(request):
         ]]
 
         prediction = model.predict(features)
+        print("Prediction:", prediction)
 
         severity_map = {
-            1: "Severe",     # Fatal
-            2: "Moderate",   # Serious
-            3: "Minor"       # Slight
+            -1: "Severe",     # Fatal
+            0: "Moderate",   # Serious
+            1: "Minor"       # Slight
         }
+
 
         result = severity_map[prediction[0]]
 

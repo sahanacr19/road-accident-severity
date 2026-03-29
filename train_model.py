@@ -63,7 +63,16 @@ data["Sex_of_Driver"] = le4.fit_transform(data["Sex_of_Driver"])
 X = data.drop("Accident_Severity", axis=1)
 
 # convert labels for ML models
-y = data["Accident_Severity"] - 2
+severity_map = {
+    1: "Severe",
+    2: "Moderate",
+    3: "Minor"
+}
+
+data["Accident_Severity"] = data["Accident_Severity"].map(severity_map)
+
+le_severity = LabelEncoder()
+y = le_severity.fit_transform(data["Accident_Severity"])
 
 
 X_train, X_test, y_train, y_test = train_test_split(
