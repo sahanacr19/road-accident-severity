@@ -22,7 +22,8 @@ It explains that the system predicts the severity of road accidents using Machin
 Users can click the **"Start Prediction"** button to proceed to the prediction page where they can enter required parameters and obtain the predicted severity level.
 
 ### User Page
-<img width="461" height="801" alt="image" src="https://github.com/user-attachments/assets/7824c187-39c8-406a-95d7-5e37d49ee649" />
+<img width="450" height="700" alt="image" src="https://github.com/user-attachments/assets/71baa514-ccc1-44cf-80bd-539d7d2b6f26" />
+
 
 The prediction page allows users to enter related parameters required for severity prediction.  
 Users can select their **"current location"** using the location button, which displays the location on an interactive map powered by **Leaflet and OpenStreetMap**.  
