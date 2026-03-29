@@ -34,8 +34,8 @@ def predict(request):
             speed,
             vehicles,
             age,
-            gender,
-            casualty
+            gender
+            
         ]]
 
         prediction = model.predict(features)
