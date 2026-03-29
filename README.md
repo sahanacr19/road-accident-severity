@@ -3,10 +3,6 @@
 Machine Learning based Road Accident Severity Prediction system built using Django.  
 The application predicts accident severity based on environmental and traffic-related features such as weather conditions, visibility, and road conditions.
 
-## DataSet
-Dataset used for training the model:
-
-https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
 
 ## Machine Learning Model
 Random Forest was selected as the final model with an accuracy of 96%.
@@ -53,3 +49,8 @@ The system processes the provided information using the trained **Random Forest 
 
 The predicted severity is highlighted on the screen to clearly indicate the result.  
 Users can click the **Predict Again** button to return to the input form and perform another prediction with different parameters.
+
+
+## Live Demo
+
+https://road-accident-severity-wvrf.onrender.com
