@@ -51,6 +51,4 @@ The predicted severity is highlighted on the screen to clearly indicate the resu
 Users can click the **Predict Again** button to return to the input form and perform another prediction with different parameters.
 
 
-## Live Demo
 
-https://road-accident-severity-wvrf.onrender.com
